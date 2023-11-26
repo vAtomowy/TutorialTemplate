@@ -1,0 +1,64 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "BuildRelease",
+            "type": "shell",
+            "command": "ninja -v",
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}/Build"
+            },
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "CleanRelease",
+            "type": "shell",
+            "command": "ninja -v clean",
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}/Build"
+            },
+            "group": "build"
+        },
+        {
+            "label": "BuildDebug",
+            "type": "shell",
+            "command": "ninja -v",
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}/Debug"
+            },
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "CleanDebug",
+            "type": "shell",
+            "command": "ninja -v clean",
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}/Debug"
+            },
+            "group": "build"
+        },
+        {
+            "label": "DBG-ST",
+            "type": "shell",
+            "command": "${command:workbench.action.debug.start}",
+            "args": ["DBG-STLINK"]
+        },
+        {
+            "label": "RUN-ST",
+            "type": "shell",
+            "command": "C:/OpenOCD/bin/openocd.exe -f interface/stlink-v2-1.cfg -f target/stm32f4x.cfg -c \"program 00_407_TEST.elf verify reset exit \" -c shutdown",
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}/Debug"
+            },
+            "group": "build"
+        }
+
+    ]
+}

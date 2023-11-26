@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "cwd": "${workspaceFolder}/Debug",
+            "executable": "stm32l431_test.elf",
+            "name": "DBG-STLINK",
+            "device": "STM32L4x1",
+            "svdFile": "C:/ST/STM32CubeCLT/STMicroelectronics_CMSIS_SVD/STM32L4x1.svd",
+            "configFiles": [
+                "interface/stlink-v2-1.cfg",
+                "target/stm32l4x.cfg"
+            ],
+            "postRestartCommands": [
+                "break main",
+                "continue"
+            ],
+            "runToEntryPoint": "main",
+        }
+    ]
+}
+
+
